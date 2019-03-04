@@ -1,0 +1,127 @@
+
+* {
+    box-sizing: border-box !important;
+}
+
+html, body {
+    box-sizing: border-box;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
+input[type="button"], input[type="submit"], input[type="reset"], botton {
+    -webkit-appearance: none;
+}
+
+input:not([type=checkbox]) {
+    box-shadow: none;
+    -webkit-appearance: none;
+}
+
+input:disabled {
+    -webkit-text-fill-color: #000;
+    -webkit-opacity: 1;
+    color: #000;
+}
+
+p, div, ul, li, ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+a {
+    text-decoration: none;
+}
+
+dl, dt, dd {
+    margin: 0;
+}
+
+/* overide dialog*/
+body .vue-dialog {
+    font-size: 34px;
+}
+
+body .vue-dialog .dialog-content {
+    padding: 50px;
+    font-size: 34px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+body .vue-dialog-button, body .vue-dialog-button-grey {
+    font-size: 34px !important;
+    color: #16ac3a;
+    height: 90px;
+    line-height: 90px;
+    border-radius: 0;
+    border: none;
+    background: none;
+    -webkit-appearance: none;
+    outline: none;
+}
+
+body .vue-dialog-button-grey {
+    color: #666;
+}
+
+body .lx-toast.lx-word-wrap {
+    width: auto;
+    max-width: 80%;
+}
+
+body .lx-toast {
+    font-size: 28px;
+    line-height: 36px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    animation: block-toast;
+    -webkit-animation: block-toast;
+}
+
+body .lx-load-box {
+    width: 80px;
+    height: 80px;
+    min-height: 0;
+    margin-left: -28px;
+    top: 440px;
+    transform: scale(1.4);
+}
+
+body .lx-load-box .lx-load-content {
+    transform: scale(0.7);
+}
+
+/* overide ar dialog*/
+.locale-ar .vue-dialog {
+    right: 50%;
+    transform: translateX(50%);
+}
+
+@keyframes block-toast {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/*  iPhone X适配  */
+@media only screen and (device-width: 375px) and (device-height: 812px) {
+    body {
+        padding-bottom: constant(safe-area-inset-bottom);
+    }
+}
+
+.clearfix {
+    &:after {
+        content: ".";
+        clear: both;
+        display: block;
+        height: 0;
+        overflow: hidden;
+        visibility: hidden;
+    }
+}
