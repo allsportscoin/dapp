@@ -11,31 +11,11 @@ const webpack = require('webpack');
 const proxyMiddleware = require('http-proxy-middleware');
 const webpackConfig = require('./webpack.dev.conf');
 
-// default port where dev server listens for incoming traffic
 const port = process.env.PORT || config.dev.port;
-// automatically open browser, if not set will be false
 const autoOpenBrowser = !!config.dev.autoOpenBrowser;
-// Define HTTP proxies to your custom API backend
-// https://github.com/chimurai/http-proxy-middleware
 
 const app = express();
 const compiler = webpack(webpackConfig);
-
-// compiler.plugin('compilation', function (compilation) {
-//     // handler the
-//     compilation.plugin('html-webpack-plugin-before-html-processing', function(htmlPluginData, cb) {
-//         htmlPluginData.html = htmlPluginData.html.replace(/\{{3}[\w\d_]+\}{3}/g, '');
-//         cb();
-//     });
-
-//     // force page reload when html-webpack-plugin template changes
-//     // currently disabled until this is resolved:
-//     // https://github.com/jantimon/html-webpack-plugin/issues/680
-//     // compilation.plugin('html-webpack-plugin-after-emit', function (data, cb) {
-//     //     hotMiddleware.publish({ action: 'reload' })
-//     //     cb()
-//     // })
-// })
 
 const devMiddleware = require('webpack-dev-middleware')(compiler, {
     publicPath: webpackConfig.output.publicPath,
@@ -73,7 +53,7 @@ app.use(devMiddleware);
 const staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory);
 app.use(staticPath, express.static('./static'));
 
-const uri = 'http://localhost:' + port;
+const uri = 'https://localhost:' + port;
 
 var _resolve;
 var _reject;
@@ -93,7 +73,7 @@ devMiddleware.waitUntilValid(() => {
             _reject(err);
         }
         process.env.PORT = port;
-        var uri = 'http://localhost:' + port;
+        var uri = 'https://localhost:' + port;
         console.log('> Listening at ' + uri + '\n');
         // when env is testing, don't need open it
         // if (autoOpenBrowser && process.env.NODE_ENV !== 'testing') {
