@@ -4,7 +4,7 @@ const app = {
         Vue.component('Loading', Loading);
     }
 };
+if (typeof window !== 'undefined' && window.Vue) {
+    window.Vue.component('Loading', Loading);
+}
 export default app;
-// if (typeof window !== 'undefined' && window.Vue) {
-//     window.Vue.component('Loading', Loading);
-// }
